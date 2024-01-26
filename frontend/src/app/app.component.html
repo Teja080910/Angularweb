@@ -1,0 +1,15 @@
+<h1>{{test()}}</h1>
+
+<h2 [style]="{color: cvar}">{{d}}</h2>
+
+<h3 [style.color]="cvar">hello</h3>
+
+<button [disabled]=isdisable (click)="change()">submit</button>
+
+<h4 [style]="mystyle">ok</h4>
+
+<h1 [class]="isactive?'active':'inactive'">Siva</h1>
+
+<!-- <input type="text" [(ngModel)]="cvar">  -->
+
+color::<input type="text" (input)="changecolor($event)">
