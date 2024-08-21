@@ -1,50 +1,50 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
+import { SignUp } from './register/register';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, FormsModule, CommonModule, SignUp],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title:string = 'Angular app created by teja ok';
+  // title: string = 'Angular app created by Teja OK';
 
-  d:string=new Date().toLocaleTimeString()
-  
-  // timeid=setInterval(()=>{
-  //   this.d=new Date().toLocaleTimeString();
-  // },1000)
+  // Uncomment and use these if needed
 
-  test()
-  {
-    return this.title;
-  }
+  // d: string = new Date().toLocaleTimeString();
 
-  isdisable:boolean=false;
-  isactive:boolean=true;
+  // timeId = setInterval(() => {
+  //   this.d = new Date().toLocaleTimeString();
+  // }, 1000);
 
-  cvar:string="green";
+  // test() {
+  //   return this.title;
+  // }
 
-  mystyle:object=
-  {
-    color:"red",
-    background:"blue",
-    fontSize:'30px'
-  }
+  // isDisable: boolean = false;
+  // isActive: boolean = true;
 
-  change()
-  {
-    this.cvar="red";
-    this.isactive=false;
-  }
+  // cVar: string = "green";
 
-  changecolor(e:any)
-  {
-    this.cvar=e.target.value;
-  }
+  // list = ["Teja", "Siva", "Sai"];
 
-  
-  
+  // myStyle: object = {
+  //   color: "red",
+  //   background: "blue",
+  //   fontSize: '30px'
+  // };
+
+  // change() {
+  //   this.cVar = "red";
+  //   this.isActive = false;
+  // }
+
+  // changeColor(e: any) {
+  //   this.cVar = e.target.value;
+  // }
 }
