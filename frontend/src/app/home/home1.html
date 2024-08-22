@@ -1,0 +1,40 @@
+<div class="container">
+    <!-- Sidebar with profile and buttons -->
+    <div class="sidebar">
+      <img src="./teja.jpg" alt="Profile Icon" class="profile-icon">
+      <nav>
+        <ul>
+          <li><button (click)="scrollToSection('education')">Education</button></li>
+          <li><button (click)="scrollToSection('experience')">Experience</button></li>
+          <li><button (click)="scrollToSection('skills')">Skills</button></li>
+          <li><button (click)="scrollToSection('projects')">Projects</button></li>
+          <li><button (click)="scrollToSection('contact')">Contact</button></li>
+        </ul>
+      </nav>
+    </div>
+  
+    <!-- Right-side content -->
+    <div class="right-content">
+      <!-- Initial image that stays fixed -->
+      <img src="./teja.jpg" alt="Right Image" class="right-image" *ngIf="showImage">
+  
+      <!-- Dynamic content that appears on scroll -->
+      <div class="content">
+        <section id="skills">
+          <h2>Skills</h2>
+          <p>Your skills go here.</p>
+        </section>
+  
+        <section id="projects">
+          <h2>Projects</h2>
+          <p>Your projects go here.</p>
+        </section>
+  
+        <section id="experience">
+          <h2>Experience</h2>
+          <p>Your experience details go here.</p>
+        </section>
+      </div>
+    </div>
+  </div>
+  

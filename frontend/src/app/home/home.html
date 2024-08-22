@@ -1,0 +1,65 @@
+<div class="card-container">
+
+    <div class="card card-personal">
+        <div class="personal-info">
+            <h2>Personal Details</h2>
+            <p>Name: {{ personalDetails.name }}</p>
+            <p>Email: {{ personalDetails.email }}</p>
+            <p>Phone: {{ personalDetails.phone }}</p>
+        </div>
+        <div class="center-section">
+            <h1>Full Stack Developer</h1>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/your-profile" target="_blank">
+                    <img src="../../assets/images/linkedin.png" alt="LinkedIn">
+                </a>
+                <a href="https://github.com/your-profile" target="_blank">
+                    <img src="../../assets/images/github.png" alt="GitHub">
+                </a>
+                <a href="https://www.hackerrank.com/your-profile" target="_blank">
+                    <img src="../../assets/images/hackerrank.png" alt="HackerRank">
+                </a>
+            </div>
+        </div>
+        <div class="personal-photo">
+            <img src="../../assets/images/photo.jpeg" alt="Personal Photo">
+        </div>
+    </div>
+
+
+
+
+    <div class="card card-education">
+        <h2>Education</h2>
+        <ul>
+            <li *ngFor="let edu of education">
+                {{ edu.degree }} - {{ edu.institution }}
+            </li>
+        </ul>
+    </div>
+
+    <div class="card card-skills">
+        <h2>Skills</h2>
+        <ul>
+            <li *ngFor="let skill of skills">{{ skill }}</li>
+        </ul>
+    </div>
+
+    <div class="card card-project">
+        <h2>Projects</h2>
+        <ul>
+            <li *ngFor="let exp of experience">
+                {{ exp.role }} at {{ exp.company }} ({{ exp.duration }})
+            </li>
+        </ul>
+    </div>
+
+    <div class="card card-experience">
+        <h2>Experience</h2>
+        <ul>
+            <li *ngFor="let exp of experience">
+                {{ exp.role }} at {{ exp.company }} ({{ exp.duration }})
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,4 +1,3 @@
-// src/app/register/register.component.ts
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -10,4 +9,5 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './register.html',
   styleUrls: ['./register.css']
 })
+
 export class SignUp {}
