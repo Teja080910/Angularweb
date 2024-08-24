@@ -1,0 +1,8 @@
+<div class="card card-project">
+    <h2>Projects</h2>
+    <ul>
+        <li *ngFor="let exp of experience">
+            {{ exp.role }} at {{ exp.company }} ({{ exp.duration }})
+        </li>
+    </ul>
+</div>

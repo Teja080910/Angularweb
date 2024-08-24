@@ -1,6 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { Component } from "@angular/core";
 import { FormsModule } from "@angular/forms";
+import { api } from "../api/api";
 
 @Component({
     selector: 'home',
@@ -11,6 +12,7 @@ import { FormsModule } from "@angular/forms";
 })
 
 export class Home {
+
     personalDetails = {
         name: "John Doe",
         email: "john.doe@example.com",
@@ -28,4 +30,5 @@ export class Home {
         { role: "Software Engineer", company: "Tech Company A", duration: "2 years" },
         { role: "Frontend Developer", company: "Tech Company B", duration: "1.5 years" }
     ];
+
 }

@@ -1,0 +1,26 @@
+<div class="signup-container">
+    <div class="signup-box">
+        <h2>Sign Up</h2>
+        <form (ngSubmit)="sendDataToServer()">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" [(ngModel)]="personal.name"
+                    [ngModelOptions]="{standalone: true}" />
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" [(ngModel)]="personal.email"
+                    [ngModelOptions]="{standalone: true}" />
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number"
+                    [(ngModel)]="personal.phone" [ngModelOptions]="{standalone: true}" />
+            </div>
+
+            <button type="submit">Upload details</button>
+        </form>
+    </div>
+</div>
