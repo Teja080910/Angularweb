@@ -21,7 +21,7 @@ export const Authentication = {
         return await CreateUser(obj)
     },
 
-    login:async(gmail:string)=>{
+    Login:async(gmail:string)=>{
         return await FindOneByGmail(gmail)
     }
 }

@@ -6,11 +6,9 @@ const Personal = new mongoose.Schema({
     Name: { type: String, required: true },
     Role: { type: String, required: true },
     Links: {
-        type: [{
-            LinkedIn: { type: String },
-            GitHub: { type: String },
-            HackerRank: { type: String }
-        }]
+        LinkedIn: { type: String },
+        GitHub: { type: String },
+        HackerRank: { type: String }
     },
     Photo: { type: String }
 })

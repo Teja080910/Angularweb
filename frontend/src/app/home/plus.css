@@ -1,0 +1,34 @@
+/* Card Styling */
+.card {
+    position: relative; /* Ensure the button is positioned relative to the card */
+}
+
+/* Plus Button Styling */
+.plus-button {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for the button's size */
+    font-size: 30px; /* Size of the plus symbol */
+    color: #fff; /* Text color */
+    background-color: #007bff; /* Background color */
+    border: none; /* Remove default border */
+    border-radius: 50%; /* Rounded button */
+    width: 50px; /* Width of the button */
+    height: 50px; /* Height of the button */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer; /* Pointer cursor on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    outline: none; /* Remove default focus outline */
+}
+
+.plus-button:hover {
+    background-color: #0056b3; /* Darker background on hover */
+}
+
+.plus-button:active {
+    transform: translate(-50%, -50%) scale(0.95); /* Slightly shrink the button on click */
+}

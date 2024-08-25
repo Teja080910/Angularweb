@@ -1,7 +1,8 @@
 import { CommonModule } from "@angular/common";
-import { HttpClient, HttpClientModule } from "@angular/common/http"; 
-import { Component } from "@angular/core";
+import { HttpClient, HttpClientModule } from "@angular/common/http";
+import { Component, OnChanges, OnInit, SimpleChanges } from "@angular/core";
 import { FormsModule } from "@angular/forms";
+import { Router } from "@angular/router";
 import { api } from "../api/api";
 
 @Component({
@@ -13,17 +14,41 @@ import { api } from "../api/api";
 })
 
 export class Personal {
-    
-    personal = {
-        name: "",
-        email: "",
-        phone: ""
-    };
 
-    constructor(private http: HttpClient) {}
+    user = {
+        gmail: "",
+        name: '',
+        phone: "",
+        role: "",
+        linkedin: "",
+        github: '',
+        hackerank: '',
+        file: '',
+    }
 
-    sendDataToServer() {
-        this.http.post(`${api}/personal`, this.personal).subscribe(
+    constructor(private http: HttpClient, private router: Router) {
+        
+    }
+
+    onFileSelected(event: any) {
+        const file = event.target.files[0];
+        if (file) {
+            this.user.file = file;
+        }
+    }
+
+    Register() {
+        const formdata = new FormData();
+        formdata.append('name', this.user.name)
+        formdata.append('gmail', this.user.gmail)
+        formdata.append('phone', this.user.phone)
+        formdata.append('role', this.user.role)
+        formdata.append('linkedin', this.user.linkedin)
+        formdata.append('github', this.user.github)
+        formdata.append('hackerank', this.user.hackerank)
+        formdata.append('file', this.user.file)
+
+        this.http.post(`${api}/auth/register`, formdata).subscribe(
             response => {
                 console.log('Data sent successfully:', response);
             },
@@ -31,5 +56,9 @@ export class Personal {
                 console.error('Error sending data:', error);
             }
         );
+    }
+
+    SignIn() {
+        this.router.navigateByUrl('/signin')
     }
 }

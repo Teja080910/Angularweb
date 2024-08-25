@@ -1,66 +1,81 @@
-<div class="card-container">
-
-    <div class="card card-personal">
-        <div class="personal-info">
-            <h1>Personal Details</h1>
-            <h3>Name: {{ personalDetails.name }}</h3>
-            <h3>Email: {{ personalDetails.email }}</h3>
-            <h3>Phone: {{ personalDetails.phone }}</h3>
-        </div>
-        <div class="center-section">
-            <h1>Full Stack Developer</h1>
-            <div class="social-icons">
-                <a href="https://www.linkedin.com/in/your-profile" target="_blank">
-                    <img src="../../assets/images/linkedin.jpeg" alt="LinkedIn">
-                </a>
-                <a href="https://github.com/your-profile" target="_blank">
-                    <img src="../../assets/images/github-logo.png" alt="GitHub">
-                </a>
-                <a href="https://www.hackerrank.com/your-profile" target="_blank">
-                    <img src="../../assets/images/hackerrank.png" alt="HackerRank">
-                </a>
+<!-- <ng-container *ngIf="personal.gmail; else noPerson"> -->
+    <div class="card-container">
+        <ng-container *ngIf="user; else noUser">
+            <div class="card card-personal">
+                <div class="personal-info">
+                    <h1>Personal Details</h1>
+                    <h3>Name: {{ user.Name }}</h3>
+                    <h3>Email: {{ user.Gmail }}</h3>
+                    <h3>Phone: {{ user.Phonenumber }}</h3>
+                </div>
+                <div class="center-section">
+                    <h1>{{ user.Role }}</h1>
+                    <div class="social-icons">
+                        <a href="https://www.linkedin.com/in/your-profile" target="_blank">
+                            <img src="../../assets/images/linkedin.jpeg" alt="LinkedIn">
+                        </a>
+                        <a href="https://github.com/your-profile" target="_blank">
+                            <img src="../../assets/images/github-logo.png" alt="GitHub">
+                        </a>
+                        <a href="https://www.hackerrank.com/your-profile" target="_blank">
+                            <img src="../../assets/images/hackerrank.png" alt="HackerRank">
+                        </a>
+                    </div>
+                </div>
+                <div class="personal-photo">
+                    <img src="../../assets/images/photo.jpeg" alt="Personal Photo">
+                </div>
             </div>
+        </ng-container>
+
+        <ng-template #noUser>
+            <div class="card card-personal">
+                <button class="plus-button">+</button>
+            </div>
+        </ng-template>
+
+
+
+
+
+
+        <div class="card card-education">
+            <h2>Education</h2>
+            <ul>
+                <li *ngFor="let edu of education">
+                    {{ edu.degree }} - {{ edu.institution }}
+                </li>
+            </ul>
         </div>
-        <div class="personal-photo">
-            <img src="../../assets/images/photo.jpeg" alt="Personal Photo">
+
+
+        <div class="card card-skills">
+            <h2>Skills</h2>
+            <ul>
+                <li *ngFor="let skill of skills">{{ skill }}</li>
+            </ul>
+        </div>
+
+        <div class="card card-project">
+            <h2>Projects</h2>
+            <ul>
+                <li *ngFor="let exp of experience">
+                    {{ exp.role }} at {{ exp.company }} ({{ exp.duration }})
+                </li>
+            </ul>
+        </div>
+
+        <div class="card card-experience">
+            <h2>Experience</h2>
+            <ul>
+                <li *ngFor="let exp of experience">
+                    {{ exp.role }} at {{ exp.company }} ({{ exp.duration }})
+                </li>
+            </ul>
         </div>
     </div>
+<!-- </ng-container> -->
 
-
-
-
-    <div class="card card-education">
-        <h2>Education</h2>
-        <ul>
-            <li *ngFor="let edu of education">
-                {{ edu.degree }} - {{ edu.institution }}
-            </li>
-        </ul>
-    </div>
-
-
-    <div class="card card-skills">
-        <h2>Skills</h2>
-        <ul>
-            <li *ngFor="let skill of skills">{{ skill }}</li>
-        </ul>
-    </div>
-
-    <div class="card card-project">
-        <h2>Projects</h2>
-        <ul>
-            <li *ngFor="let exp of experience">
-                {{ exp.role }} at {{ exp.company }} ({{ exp.duration }})
-            </li>
-        </ul>
-    </div>
-
-    <div class="card card-experience">
-        <h2>Experience</h2>
-        <ul>
-            <li *ngFor="let exp of experience">
-                {{ exp.role }} at {{ exp.company }} ({{ exp.duration }})
-            </li>
-        </ul>
-    </div>
-</div>
+<!-- <ng-template #noPerson>
+    <personal/>
+</ng-template> -->
