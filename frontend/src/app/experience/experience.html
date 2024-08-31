@@ -1,8 +1,14 @@
 <div class="card card-experience">
-    <h2>Experience</h2>
-    <ul>
-        <li *ngFor="let exp of experience">
-            {{ exp.role }} at {{ exp.company }} ({{ exp.duration }})
-        </li>
-    </ul>
+    <ng-container *ngIf="experience[0].role, else noEdu">
+        <h2>Experience</h2>
+        <ul>
+            <li *ngFor="let exp of experience">
+                {{ exp.role }} at {{ exp.company }} ({{ exp.duration }})
+            </li>
+        </ul>
+    </ng-container>
+
+    <ng-template #noEdu>
+        <button class="plus-button">+</button>
+    </ng-template>
 </div>

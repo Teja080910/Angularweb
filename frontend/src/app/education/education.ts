@@ -6,14 +6,15 @@ import { Personal } from "../personal/personal";
 @Component({
     selector: 'education',
     standalone: true,
-    imports: [CommonModule, FormsModule,Personal],
-    templateUrl: './education.html'
+    imports: [CommonModule, FormsModule, Personal],
+    templateUrl: './education.html',
+    styleUrls: ['../home/home.css', '../home/plus.css']
 })
 
 export class Education {
 
-    education = [
-        { degree: "B.Sc Computer Science", institution: "University A" },
-        { degree: "M.Sc Data Science", institution: "University B" }
-    ];
+    education = [{
+        institution: '',
+        degree:''
+    }];
 }

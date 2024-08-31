@@ -1,8 +1,16 @@
 <div class="card card-project">
-    <h2>Projects</h2>
-    <ul>
-        <li *ngFor="let exp of experience">
-            {{ exp.role }} at {{ exp.company }} ({{ exp.duration }})
-        </li>
-    </ul>
+
+    <ng-container *ngIf="project[0].role, else noPro">
+        <h2>Projects</h2>
+        <ul>
+            <li *ngFor="let edu of project">
+                {{ edu.role }} - {{ edu.company }}
+            </li>
+        </ul>
+    </ng-container>
+
+    <ng-template #noPro>
+        <button class="plus-button">+</button>
+    </ng-template>
+
 </div>

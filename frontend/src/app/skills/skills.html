@@ -1,6 +1,21 @@
 <div class="card card-skills">
-    <h2>Skills</h2>
-    <ul>
-        <li *ngFor="let skill of skills">{{ skill }}</li>
-    </ul>
+    <ng-container *ngIf="Skills,else noSkills">
+        <h2>Skills</h2>
+        <ul>
+            <li *ngFor="let skill of Skills">
+                <h3>{{ skill.name }}</h3>
+                <div class="progress" role="progressbar" aria-label="Success example"
+                    [attr.aria-valuenow]="skill.progress" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar bg-success" [style.width.%]="skill.progress">
+                        {{ skill.progress }}%
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </ng-container>
+
+    <ng-template #noSkills>
+        <button class="plus-button">+</button>
+    </ng-template>
+
 </div>

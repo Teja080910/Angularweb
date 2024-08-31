@@ -1,8 +1,16 @@
 <div class="card card-education">
-    <h2>Education</h2>
-    <ul>
-        <li *ngFor="let edu of education">
-            {{ edu.degree }} - {{ edu.institution }}
-        </li>
-    </ul>
+
+    <ng-container *ngIf="education[0].degree, else noEdu">
+        <h2>Education</h2>
+        <ul>
+            <li *ngFor="let edu of education">
+                {{ edu.degree }} - {{ edu.institution }}
+            </li>
+        </ul>
+    </ng-container>
+
+    <ng-template #noEdu>
+        <button class="plus-button">+</button>
+    </ng-template>
+
 </div>

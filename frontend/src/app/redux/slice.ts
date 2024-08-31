@@ -1,5 +1,6 @@
 const initialState = {
-    gmail: ''
+  gmail: '',
+  password:''
   };
   
   export const counterReducer = (state = initialState, action: any) => {
@@ -7,7 +8,8 @@ const initialState = {
       case 'AUTH':
         return {
           ...state,
-          Gmail: action?.payload?.gmail
+          gmail: action?.payload?.gmail,
+          password:action?.payload?.password
         };
       default:
         return state;
