@@ -1,5 +1,4 @@
 <div class="card-container">
-
     <div class="card card-personal">
         <ng-container *ngIf="user; else noUser">
             <div class="personal-info">
@@ -25,12 +24,12 @@
 
                 <div class="action-section">
                     <p class="action-item">
-                        <i class="fas fa-edit"></i> Edit
+                      <fa-icon [icon]="personal.faedit" (click)="Edit()"></fa-icon>
                     </p>
                     <p class="action-item">
-                        <i class="fas fa-sign-out-alt"></i> Logout
+                      <fa-icon [icon]="personal.fasignout" (click)="Logout()"></fa-icon>
                     </p>
-                </div>
+                  </div>
             </div>
 
             <div class="personal-photo">
@@ -50,5 +49,9 @@
     <projects />
 
     <experience></experience>
+
+    <ng-container *ngIf="personal.edit">
+        <personaledit/>
+    </ng-container>
 
 </div>

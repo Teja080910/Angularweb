@@ -89,7 +89,7 @@
     /* flex-direction: column; Stack edit and logout buttons vertically */
     justify-content:space-between; /* Center vertically */
     align-items: center; /* Center horizontally */
-    gap: 10px; /* Space between edit and logout buttons */
+    gap: 50px; /* Space between edit and logout buttons */
     margin-top: 20px;
 }
 

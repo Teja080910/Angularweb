@@ -3,6 +3,8 @@ import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { Component, OnChanges, OnInit, SimpleChanges } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { Router } from "@angular/router";
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
+import { faEdit, faSignOutAlt, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { CheckUser } from "../actions/checkuser";
 import { OpenFile } from "../actions/openphoto";
 import { Education } from "../education/education";
@@ -11,11 +13,23 @@ import { Personal } from "../personal/personal";
 import { Projects } from "../projects/projects";
 import { store } from "../redux/store";
 import { Skill } from "../skills/skills";
+import { PersonalEdit } from "../personal/edit";
+import { UserDataService } from "../data.service";
 
 @Component({
     selector: 'home',
     standalone: true,
-    imports: [CommonModule, FormsModule, HttpClientModule, Personal, Skill, Experience, Education, Projects],
+    imports: [CommonModule,
+        FormsModule,
+        HttpClientModule,
+        Personal,
+        Skill,
+        Experience,
+        Education,
+        Projects,
+        FontAwesomeModule,
+        PersonalEdit
+    ],
     templateUrl: './home.html',
     styleUrls: ['./home.css', './plus.css']
 })
@@ -25,7 +39,11 @@ export class Home implements OnInit, OnChanges {
     personal = {
         gmail: store.getState().counter.gmail,
         password: store.getState()?.counter?.password,
-        loading: false
+        loading: false,
+        faedit: faEdit,
+        fatrash: faTrash,
+        fasignout: faSignOutAlt,
+        edit: false,
     };
 
     user = {
@@ -37,7 +55,8 @@ export class Home implements OnInit, OnChanges {
         Photo: '',
     }
 
-    constructor(private http: HttpClient, private router: Router) {
+    constructor(private http: HttpClient, private router: Router, private userDataService: UserDataService) {
+        
     }
 
     Openfile(photo: string) {
@@ -58,26 +77,34 @@ export class Home implements OnInit, OnChanges {
                 CheckUser(this.personal, this.http)
                     .then((data: any) => {
                         this.Openfile(data?.Photo)
+                        this.personal.loading = true
                         this.user = data
                     })
                     .catch((e: any) => console.log(e))
             }
         } catch (error) {
-            this.personal.loading = true;
             console.error('Error:', error);
         }
     }
 
+    Edit() {
+        this.personal.edit = true;
+        this.userDataService.updateUserData(true);
+    }
 
+    Logout() {
+        store.dispatch({ type: 'AUTH', payload: { gmail: '', password: '' } });
+    }
 
     ngOnInit(): void {
-        if(!this.user?.Gmail){
+        if (!this.user?.Gmail) {
             this.checkuser();
         }
-        if (this.personal.loading) {
-            !this.personal.gmail[1] ? this.router.navigateByUrl('/signin') : this.router.navigateByUrl('');
-        }
 
+        !this.personal.loading ? !this.personal.gmail[1] ? this.router.navigateByUrl('/signin') : this.router.navigateByUrl('') : ' '
+
+        this.userDataService.currentUserData
+            .subscribe((data: any) => { this.personal.edit = data })
     }
 
     ngOnChanges(changes: SimpleChanges): void {

@@ -14,3 +14,30 @@
     </ng-template>
 
 </div>
+
+<ng-container *ngIf="edit">
+    <div class="modal-custom" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-header">
+            <h5 class="modal-title" id="editModalLabel">Edit Personal Information</h5>
+            <button type="button" class="btn-close" aria-label="Close" (click)="Close()"></button>
+        </div>
+        <div class="modal-body">
+            <form (ngSubmit)="updateUserData()">
+                <div *ngFor="let item of education; let i = index" class="form-group">
+                    <label for="institution-{{i}}">Institution Name</label>
+                    <input type="text" id="institution-{{i}}" [(ngModel)]="education[i].institution" name="institution-{{i}}" class="form-control">
+                    
+                    <label for="degree-{{i}}">Degree</label>
+                    <input type="text" id="degree-{{i}}" [(ngModel)]="education[i].degree" name="degree-{{i}}" class="form-control">
+                    
+                    <button type="button" class="btn btn-danger" (click)="removeEducation(i)">Remove</button>
+                </div>
+                <button type="button" class="btn btn-primary" (click)="addEducation()">Add More</button>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" aria-label="Close" (click)="Close()">Close</button>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>    
+</ng-container>

@@ -1,0 +1,40 @@
+<!-- Modal -->
+<div class="modal-custom" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <h5 class="modal-title" id="editModalLabel">Edit Personal Information</h5>
+        <button type="button" class="btn-close" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+        <form (ngSubmit)="updateUserData()">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" [(ngModel)]="user.Name" name="name" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" [(ngModel)]="user.Gmail" name="email" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="text" id="phone" [(ngModel)]="user.Phonenumber" name="phone" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="role">Role</label>
+                <input type="text" id="role" [(ngModel)]="user.Role" name="role" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="photo">Photo URL</label>
+                <input type="text" id="photo" [(ngModel)]="user.Photo" name="photo" class="form-control">
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" aria-label="Close" (click)="Close()">Close</button>
+                <button type="submit" class="btn btn-primary">Update</button>
+            </div>
+        </form>
+    </div>
+</div>
